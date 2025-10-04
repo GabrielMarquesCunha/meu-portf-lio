@@ -1,0 +1,332 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+.inter-text {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+a {
+  text-decoration: none;
+}
+body, html {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: Inter, sans-serif;
+  background-size: cover;       
+  background-repeat: no-repeat; 
+  background-position: center;  
+  color: white;
+
+}
+.menu a {
+  text-transform: uppercase;
+  display: inline-block;
+  color: white;
+}
+header{
+  height: 1rem;
+}
+.menu{
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+.menu li{
+  list-style: none;
+}
+.container-main {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 0 5rem;
+  box-sizing: border-box;
+}
+.apresentacao {
+  grid-column: 1 / span 7; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+  padding-right: 3rem;
+}
+.apresentacao h1 {
+  font-size: 2.5rem;
+  margin: 0;
+
+}
+
+.apresentacao p {
+  font-size: 1.2rem;
+}
+
+.myface {
+  grid-column: 8 / span 5; 
+  display: flex;
+  justify-content: center;
+  perspective: 1000px;
+}
+
+.girar-wrapper img {
+  max-width: 100%;
+  height: 350px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 1s ease-in-out;
+  transform-style: preserve-3d;
+
+}
+.girar-wrapper img.girar {
+  transform: rotateY(360deg);
+}
+
+.girar-wrapper {
+  display: inline-block;
+  animation: flutuar 4s ease-in-out infinite;
+}
+@keyframes flutuar {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px); /* sobe */
+  }
+  100% {
+    transform: translateY(0); /* volta */
+  }
+}
+.apresentacao p{
+  color: white;
+  letter-spacing: 2px;
+  margin-bottom: 1.5rem;
+}
+
+.texto-info p{
+  line-height: 2
+}
+
+.typewriter {
+  overflow: hidden;
+  border-right: .15em solid white;
+  white-space: nowrap;
+  animation: typing 2s steps(30, end), blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: white; }
+}
+
+.titulo{
+  width: 15rem;
+}
+
+.js-scroll {
+  opacity: 0;
+  transform: translate3d(-30px, 0, 0);
+  transition: opacity 0.6s, transform 0.6s;
+}
+
+.js-scroll.ativo {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.projetos {
+  position: relative;
+  grid-column: 2 / span 10;
+  border-radius: 20px;
+  margin-top: 5rem;
+  padding: 0;
+  opacity: 1; /* visível desde o início */
+  transform: translateY(0);
+  transition: background-color 1s ease;
+  background-color: transparent; /* começa transparente */
+  z-index: 5000;
+  width: 100%;
+
+
+}
+
+.projetos.js-scroll.ativo {
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(4px);
+}
+
+.titulo-exp{
+  text-align: center;
+  margin: 5rem;
+}
+
+.hemominas {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+}
+
+.swiper {
+  width: 60%;         
+  max-width: 600px;
+  height: 350px;
+  margin-top: 20px;    
+  margin-left: 0 !important;
+  margin-right: auto;  
+  display: block;
+}
+
+/* Ajusta cada slide */
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;   
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  border-radius: 8px;
+}
+
+.swiper-button-next{
+  color: rgb(98, 1, 116)!important;
+}
+
+.swiper-button-prev{
+  color: rgb(98, 1, 116)!important;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.9);
+}
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 80vh;
+  border-radius: 8px;
+}
+.close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.swiper-slide {
+  position: relative; 
+}
+
+
+
+.swiper-slide .expand-img:hover::after {
+  opacity: 1;
+}
+
+
+#space {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* fica atrás do resto do site */
+  background: radial-gradient(ellipse at bottom, #0d1d31 0%, #000 100%);
+}
+
+#blackhole-section {
+  position: relative;
+  width: 100%; /* OK */
+  margin: 0;
+  padding: 0;
+  top: -5rem;
+}
+
+#blackhole-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; 
+  pointer-events: none;
+
+  background: 
+    /* Fade no topo (azul → transparente pra baixo) */
+    linear-gradient(to bottom, rgba(9,19,33,1) 0%, rgba(9,19,33,0) 20%),
+
+    /* Fade na base (azul → transparente pra cima) */
+    linear-gradient(to top, rgba(9,19,33,1) 0%, rgba(9,19,33,0) 20%);
+
+  background-repeat: no-repeat;
+  background-size: 100% 20%, 100% 20%; /* controla altura das faixas */
+  background-position: top, bottom;
+}
+
+
+#blackhole {
+  position: relative; /* relativo à seção */
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+#blackhole canvas {
+  display: block;
+  width: 100% !important;
+  height: auto; /* mantém proporção */
+  margin: 0;
+  padding: 0;
+}
+#blackhole {
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+
+#blackhole.show {
+  opacity: 1;
+}
+
+.blackhole-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* altura da viewport */
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#blackhole-section {
+  width: 100vw;   /* viewport width */
+  height: 100vh;  /* viewport height */
+  margin: 0;
+  padding: 0;
+}
+
+.experiencias{
+  padding: 4rem 2rem;
+}
