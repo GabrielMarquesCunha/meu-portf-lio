@@ -161,9 +161,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-
-
-
  document.addEventListener("DOMContentLoaded", () => {
   const blackhole = document.getElementById("blackhole");
   const section = document.getElementById("blackhole-section");
@@ -171,15 +168,41 @@ document.addEventListener("DOMContentLoaded", () => {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        blackhole.classList.add("show");  // ativa fade-in
+        blackhole.classList.add("show");  
       } else {
-        blackhole.classList.remove("show"); // opcional: some de novo ao sair
+        blackhole.classList.remove("show"); 
       }
     });
-  }, { threshold: 0.3 }); // ativa quando 30% da seção estiver visível
+  }, { threshold: 0.3 }); 
 
   observer.observe(section);
 });
 
 
  
+const eye = document.querySelector(".eye-core");
+const container = document.querySelector(".cosmic-eye");
+
+
+function moveEyeRandomly() {
+  const range = 10; // quanto o olho pode se mover
+  const offsetX = (Math.random() - 0.5) * 2 * range;
+  const offsetY = (Math.random() - 0.5) * 2 * range;
+
+  eye.style.transform = `translate(calc(-50% + ${offsetX}px), calc(-50% + ${offsetY}px))`;
+
+ 
+  const delay = 1500 + Math.random() * 2000;
+  setTimeout(moveEyeRandomly, delay);
+}
+
+
+moveEyeRandomly();
+
+// redirecionamento
+container.addEventListener("click", () => {
+  container.style.filter = "brightness(0.8)";
+  setTimeout(() => {
+    window.location.href = "blackhole.html";
+  }, 800);
+});
