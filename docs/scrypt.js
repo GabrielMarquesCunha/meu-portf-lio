@@ -1,4 +1,3 @@
-
 const face = document.querySelector(".myface img");
 let angle = 0;
 
@@ -21,7 +20,7 @@ function initAnimacaoScroll() {
         } else {
           section.classList.remove("ativo");
         }
-      })
+      });
     }
     animaScroll();
     window.addEventListener("scroll", animaScroll);
@@ -29,26 +28,23 @@ function initAnimacaoScroll() {
 }
 initAnimacaoScroll();
 
-
-
-const swiper = new Swiper('.swiper', {
+const swiper = new Swiper(".swiper", {
   loop: true,
   pagination: {
-    el: '.swiper-pagination',
+    el: ".swiper-pagination",
     clickable: true,
   },
   navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
   },
-})
+});
 
 const modal = document.getElementById("imgModal");
 const modalImg = document.getElementById("modalImg");
 const closeBtn = document.querySelector(".close");
 
-
-document.querySelectorAll(".expand-img").forEach(img => {
+document.querySelectorAll(".expand-img").forEach((img) => {
   img.addEventListener("click", () => {
     modal.style.display = "block";
     modalImg.src = img.src;
@@ -56,18 +52,18 @@ document.querySelectorAll(".expand-img").forEach(img => {
 });
 
 // Fecha modal
-closeBtn.onclick = function() {
+closeBtn.onclick = function () {
   modal.style.display = "none";
-}
+};
 
 // Fecha clicando fora da imagem
-modal.onclick = function(e) {
+modal.onclick = function (e) {
   if (e.target === modal) {
     modal.style.display = "none";
   }
-}
+};
 
-/* COMENTINHAAAAAAAAAAAAAS E ESTRELAS */ 
+/* COMENTINHAAAAAAAAAAAAAS E ESTRELAS */
 
 document.addEventListener("DOMContentLoaded", () => {
   const canvas = document.getElementById("space");
@@ -92,16 +88,15 @@ document.addEventListener("DOMContentLoaded", () => {
       y: Math.random() * canvas.height,
       radius: Math.random() * 1.2,
       alpha: Math.random(),
-      alphaChange: 0.02 * (Math.random() - 0.5)
+      alphaChange: 0.02 * (Math.random() - 0.5),
     });
   }
 
   function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    
     ctx.fillStyle = "white";
-    stars.forEach(star => {
+    stars.forEach((star) => {
       star.alpha += star.alphaChange;
       if (star.alpha <= 0 || star.alpha >= 1) {
         star.alphaChange *= -1;
@@ -136,7 +131,12 @@ document.addEventListener("DOMContentLoaded", () => {
       comet.y += dy;
 
       // Gradiente do cometa
-      let gradient = ctx.createLinearGradient(comet.x, comet.y, comet.x - dx * comet.length, comet.y - dy * comet.length);
+      let gradient = ctx.createLinearGradient(
+        comet.x,
+        comet.y,
+        comet.x - dx * comet.length,
+        comet.y - dy * comet.length
+      );
       gradient.addColorStop(0, "rgba(255,255,255,0.8)");
       gradient.addColorStop(1, "rgba(255,255,255,0)");
 
@@ -157,32 +157,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
   animate();
 });
- /* FIM COMENTINHAAAAAAAAAAAAAS E ESTRELAS */ 
+/* FIM COMENTINHAAAAAAAAAAAAAS E ESTRELAS */
 
-
-
- document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
   const blackhole = document.getElementById("blackhole");
   const section = document.getElementById("blackhole-section");
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        blackhole.classList.add("show");  
-      } else {
-        blackhole.classList.remove("show"); 
-      }
-    });
-  }, { threshold: 0.3 }); 
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          blackhole.classList.add("show");
+        } else {
+          blackhole.classList.remove("show");
+        }
+      });
+    },
+    { threshold: 0.3 }
+  );
 
   observer.observe(section);
 });
 
-
- 
 const eye = document.querySelector(".eye-core");
 const container = document.querySelector(".cosmic-eye");
-
 
 function moveEyeRandomly() {
   const range = 10; // quanto o olho pode se mover
@@ -191,11 +189,9 @@ function moveEyeRandomly() {
 
   eye.style.transform = `translate(calc(-50% + ${offsetX}px), calc(-50% + ${offsetY}px))`;
 
- 
   const delay = 1500 + Math.random() * 2000;
   setTimeout(moveEyeRandomly, delay);
 }
-
 
 moveEyeRandomly();
 
