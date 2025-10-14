@@ -15,7 +15,6 @@
       <ul class="menu ">
         <li><a href="#">Início</a></li>
         <li><a href="#">Projetos</a></li>
-        <li><a href="#">Contato</a></li>
       </ul>
     </nav>
   </header>
@@ -43,10 +42,10 @@
         <div class="eye-core"></div>
       </div>
     </section>
+    <h1 class="titulo-exp js-scroll">Experiências</h1>
     <div class="experiencias ">
-      <h1 class="titulo-exp js-scroll">Experiências</h1>
       <div class="hemominas js-scroll">
-        <h3>Fundação Hemominas</h3>
+        <h3 class="titulo-hemominas">Fundação Hemominas</h3>
         <p>Atuei no desenvolvimento de telas e protótipos no Figma, com posterior implementação front-end. </p>
         <div class="swiper">
           <div class="swiper-wrapper">
@@ -71,10 +70,53 @@
           <div class="swiper-pagination"></div>
           <div id="imgModal" class="modal"> <span class="close">&times;</span> <img class="modal-content" id="modalImg"> </div>
         </div>
-        <p> Fui responsável pelo versionamento de scripts e projetos no GitLab, bem como pela instalação e administração de banco de dados PostgreSQL utilizando o PgAdmin, disponibilizando-o para consultas em rede. Além disso, criei uma planilha em Excel com VBA integrada ao PostgreSQL, permitindo login, salvamento, atualização e exclusão de registros diretamente no banco de dados, incluindo também a geração automática de logs de alterações</p>
+        <p> Fui responsável pelo versionamento de scripts e projetos no GitLab, bem como pela instalação e administração de banco de dados PostgreSQL utilizando o PgAdmin, disponibilizando-o para consultas em rede.<br><br>
+          Além disso, criei uma planilha em Excel com VBA integrada ao PostgreSQL, permitindo login, salvamento, atualização e exclusão de registros diretamente no banco de dados, incluindo também a geração automática de logs de alterações</p>
+      </div>
+      <div class="pbh js-scroll">
+        <div>
+          <h3 class="titulo-pbh">Prefeitura de Belo Horizonte (SMED)</h3>
+          <p>Responsável por suporte técnico e manutenção de computadores, com foco em sistemas Windows. Apoio à área administrativa e participação em projetos internos, assegurando o bom desempenho dos equipamentos e sistemas.</p>
+          <h3 class="gaia">Projeto de Extensão GAIA (PUCMINAS)</h3>
+          <p>Participação ativa em atividades voltadas à observação astronômica e à divulgação da ciência.
+            Envolvimento em debates sobre diversos temas da astronomia, como formação de estrelas, constelações, corpos celestes e espaço profundo.<br><br>
+            Aprendizado prático na montagem e utilização de telescópios, identificação de astros e constelações a olho nu e por meio de instrumentos ópticos.<br><br>
+            Experiência com o software Stellarium, utilizado para projeções no planetário e simulações do céu em diferentes épocas e locais.
+            Contribuição em discussões científicas interdisciplinares, promovendo o pensamento crítico e o interesse pela exploração do universo.
+          </p>
+          <div class="btn">
+            <button id="openGaiaModal" class="btn-ver">Ver</button>
+          </div>
+        </div>
       </div>
     </div>
   </section>
+  <!-- Modal  gaia -->
+  <div id="gaiaModal" class="modal">
+    <span class="close">&times;</span>
+    <div class="modal-content">
+      <img src="img/gaia3.JPEG" alt="GAIA 3">
+      <img src="img/gaia4.JPEG" alt="GAIA 4">
+      <img src="img/gaia5.JPEG" alt="GAIA 5">
+      <img src="img/gaia6.JPEG" alt="GAIA 6">
+      <img src="img/gaia7.JPEG" alt="GAIA 7">
+      <img src="img/gaia8.JPEG" alt="GAIA 8">
+    </div>
+  </div>
+
+  <footer class="footer js-scroll">
+    <div class="contato">
+      <a href="https://instagram.com/gabmarqu3s" target="_blank"> <img src="./img/icons8-instagram.svg" alt="Instagram"></a>
+      <a href="https://wa.me/5531987374878" target="_blank"><img src="./img/icons8-whatsapp.svg"></a>
+      <a href="mailto:gabrielmarques741@gmail.com" target="_blank"><img src="./img/icons8-gmail-novo.svg"></a>
+
+    </div>
+    <p class="copyright">© Gabriel Marques</p>
+
+
+  </footer>
+
+
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script type="importmap"> { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.157.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.157.0/examples/jsm/" } } </script>
   <script type="module" src="scrypt.js"></script>

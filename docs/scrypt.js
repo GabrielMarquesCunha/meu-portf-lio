@@ -202,3 +202,15 @@ container.addEventListener("click", () => {
     window.location.href = "blackhole.html";
   }, 800);
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const modal = document.getElementById("gaiaModal");
+  const btn = document.getElementById("openGaiaModal");
+  const span = modal.querySelector(".close");
+
+  btn.onclick = () => modal.style.display = "block";
+  span.onclick = () => modal.style.display = "none";
+  window.onclick = (e) => {
+    if (e.target === modal) modal.style.display = "none";
+  };
+});
