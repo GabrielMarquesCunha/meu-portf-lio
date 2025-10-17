@@ -1,11 +1,12 @@
+// Girar imagem do rosto ao clicar
 const face = document.querySelector(".myface img");
 let angle = 0;
-
 face.addEventListener("click", () => {
   angle += 360;
   face.style.transform = `rotateY(${angle}deg)`;
 });
 
+// Animação de scroll para ativar seções
 function initAnimacaoScroll() {
   const sections = document.querySelectorAll(".js-scroll");
   if (sections.length) {
@@ -16,7 +17,6 @@ function initAnimacaoScroll() {
         const isSectionVisible = sectionTop - windowMetade < 0;
         if (isSectionVisible) {
           section.classList.add("ativo");
-          console.log("Ativou:", section);
         } else {
           section.classList.remove("ativo");
         }
@@ -28,6 +28,7 @@ function initAnimacaoScroll() {
 }
 initAnimacaoScroll();
 
+// Swiper (carrossel)
 const swiper = new Swiper(".swiper", {
   loop: true,
   pagination: {
@@ -40,39 +41,37 @@ const swiper = new Swiper(".swiper", {
   },
 });
 
-const modal = document.getElementById("imgModal");
+// Modal de imagem expandida
+const imgModal = document.getElementById("imgModal");
 const modalImg = document.getElementById("modalImg");
-const closeBtn = document.querySelector(".close");
+const closeImgBtn = document.querySelector(".close");
 
 document.querySelectorAll(".expand-img").forEach((img) => {
   img.addEventListener("click", () => {
-    modal.style.display = "block";
+    imgModal.style.display = "block";
     modalImg.src = img.src;
   });
 });
 
-// Fecha modal
-closeBtn.onclick = function () {
-  modal.style.display = "none";
+closeImgBtn.onclick = () => {
+  imgModal.style.display = "none";
 };
 
-// Fecha clicando fora da imagem
-modal.onclick = function (e) {
-  if (e.target === modal) {
-    modal.style.display = "none";
+imgModal.onclick = (e) => {
+  if (e.target === imgModal) {
+    imgModal.style.display = "none";
   }
 };
 
-/* COMENTINHAAAAAAAAAAAAAS E ESTRELAS */
-
+// Fundo animado: estrelas e cometas
 document.addEventListener("DOMContentLoaded", () => {
   const canvas = document.getElementById("space");
   const ctx = canvas.getContext("2d");
 
   let stars = [];
   let comets = [];
-  const numStars = 150; // quantidade de estrelas
-  const cometChance = 0.002; // chance de nascer um cometa por frame
+  const numStars = 150;
+  const cometChance = 0.002;
 
   function resizeCanvas() {
     canvas.width = window.innerWidth;
@@ -81,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("resize", resizeCanvas);
   resizeCanvas();
 
-  // Cria as estrelas
+  // Estrelas
   for (let i = 0; i < numStars; i++) {
     stars.push({
       x: Math.random() * canvas.width,
@@ -107,21 +106,19 @@ document.addEventListener("DOMContentLoaded", () => {
       ctx.fill();
     });
 
-    // Reset alpha global
     ctx.globalAlpha = 1;
 
-    // Criar cometas aleatórios
+    // Cometas
     if (Math.random() < cometChance) {
       comets.push({
         x: Math.random() * canvas.width,
         y: -50,
         length: 200,
         speed: 6 + Math.random() * 4,
-        angle: Math.PI / 4, // 45°
+        angle: Math.PI / 4,
       });
     }
 
-    // Desenhar cometas
     for (let i = comets.length - 1; i >= 0; i--) {
       let comet = comets[i];
       let dx = Math.cos(comet.angle) * comet.speed;
@@ -130,7 +127,6 @@ document.addEventListener("DOMContentLoaded", () => {
       comet.x += dx;
       comet.y += dy;
 
-      // Gradiente do cometa
       let gradient = ctx.createLinearGradient(
         comet.x,
         comet.y,
@@ -157,60 +153,72 @@ document.addEventListener("DOMContentLoaded", () => {
 
   animate();
 });
-/* FIM COMENTINHAAAAAAAAAAAAAS E ESTRELAS */
 
+// Modal Gaia
 document.addEventListener("DOMContentLoaded", () => {
-  const blackhole = document.getElementById("blackhole");
-  const section = document.getElementById("blackhole-section");
+  const gaiaModal = document.getElementById("gaiaModal");
+  const openGaiaModalBtn = document.getElementById("openGaiaModal");
+  const closeGaiaBtn = gaiaModal.querySelector(".close");
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          blackhole.classList.add("show");
-        } else {
-          blackhole.classList.remove("show");
-        }
-      });
-    },
-    { threshold: 0.3 }
-  );
-
-  observer.observe(section);
-});
-
-const eye = document.querySelector(".eye-core");
-const container = document.querySelector(".cosmic-eye");
-
-function moveEyeRandomly() {
-  const range = 10; // quanto o olho pode se mover
-  const offsetX = (Math.random() - 0.5) * 2 * range;
-  const offsetY = (Math.random() - 0.5) * 2 * range;
-
-  eye.style.transform = `translate(calc(-50% + ${offsetX}px), calc(-50% + ${offsetY}px))`;
-
-  const delay = 1500 + Math.random() * 2000;
-  setTimeout(moveEyeRandomly, delay);
-}
-
-moveEyeRandomly();
-
-// redirecionamento
-container.addEventListener("click", () => {
-  container.style.filter = "brightness(0.8)";
-  setTimeout(() => {
-    window.location.href = "blackhole.html";
-  }, 800);
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  const modal = document.getElementById("gaiaModal");
-  const btn = document.getElementById("openGaiaModal");
-  const span = modal.querySelector(".close");
-
-  btn.onclick = () => modal.style.display = "block";
-  span.onclick = () => modal.style.display = "none";
+  openGaiaModalBtn.onclick = () => gaiaModal.style.display = "block";
+  closeGaiaBtn.onclick = () => gaiaModal.style.display = "none";
   window.onclick = (e) => {
-    if (e.target === modal) modal.style.display = "none";
+    if (e.target === gaiaModal) gaiaModal.style.display = "none";
   };
+
+ 
+});
+
+// Modal Hemominas com navegação de imagens
+document.addEventListener("DOMContentLoaded", () => {
+  const hemominasModal = document.getElementById("hemominasModal");
+  const openBtn = document.getElementById("openHemominasModal");
+  const closeBtn = hemominasModal?.querySelector(".close");
+  const prevBtn = hemominasModal?.querySelector(".prev");
+  const nextBtn = hemominasModal?.querySelector(".next");
+  const slides = hemominasModal ? Array.from(hemominasModal.querySelectorAll(".carousel .slide")) : [];
+  let current = 0;
+
+  function showSlide(index) {
+   
+    const currentSlide = slides[current];
+    if (currentSlide && currentSlide.tagName === "VIDEO") currentSlide.pause();
+
+    slides.forEach((s, i) => s.classList.toggle("active", i === index));
+    current = index;
+  }
+
+  openBtn?.addEventListener("click", () => {
+    hemominasModal.style.display = "flex";
+    showSlide(current);
+  });
+
+  closeBtn?.addEventListener("click", () => {
+ 
+    const s = slides[current];
+    if (s && s.tagName === "VIDEO") s.pause();
+    hemominasModal.style.display = "none";
+  });
+
+  window.addEventListener("click", e => {
+    if (e.target === hemominasModal) {
+      const s = slides[current];
+      if (s && s.tagName === "VIDEO") s.pause();
+      hemominasModal.style.display = "none";
+    }
+  });
+
+  nextBtn?.addEventListener("click", () => showSlide((current + 1) % slides.length));
+  prevBtn?.addEventListener("click", () => showSlide((current - 1 + slides.length) % slides.length));
+
+  document.addEventListener("keydown", (e) => {
+    if (getComputedStyle(hemominasModal).display === "none") return;
+    if (e.key === "ArrowRight") showSlide((current + 1) % slides.length);
+    if (e.key === "ArrowLeft") showSlide((current - 1 + slides.length) % slides.length);
+    if (e.key === "Escape") {
+      const s = slides[current];
+      if (s && s.tagName === "VIDEO") s.pause();
+      hemominasModal.style.display = "none";
+    }
+  });
 });

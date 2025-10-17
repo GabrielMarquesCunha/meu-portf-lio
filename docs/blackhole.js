@@ -16,7 +16,7 @@ const scene = new THREE.Scene();
 scene.background = new THREE.Color(0x000000);
 
 const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 2000);
-camera.position.set(0, 2.5, 10);
+camera.position.set(7, 0.2, 7);
 
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
@@ -244,3 +244,55 @@ window.addEventListener('resize', ()=>{
   renderer.setSize(window.innerWidth, window.innerHeight);
   composer.setSize(window.innerWidth, window.innerHeight);
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const blackhole = document.getElementById("blackhole");
+  const section = document.getElementById("blackhole-section");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          blackhole.classList.add("show");
+        } else {
+          blackhole.classList.remove("show");
+        }
+      });
+    },
+    { threshold: 0.3 }
+  );
+
+  observer.observe(section);
+});
+
+const eye = document.querySelector(".eye-core");
+const container = document.querySelector(".cosmic-eye");
+
+function moveEyeRandomly() {
+  const range = 10; // quanto o olho pode se mover
+  const offsetX = (Math.random() - 0.5) * 2 * range;
+  const offsetY = (Math.random() - 0.5) * 2 * range;
+
+  eye.style.transform = `translate(calc(-50% + ${offsetX}px), calc(-50% + ${offsetY}px))`;
+
+  const delay = 1500 + Math.random() * 2000;
+  setTimeout(moveEyeRandomly, delay);
+}
+
+moveEyeRandomly();
+
+// redirecionamento
+container.addEventListener("click", () => {
+  container.style.filter = "brightness(0.8)";
+  setTimeout(() => {
+    const currentPage = window.location.pathname.split("/").pop();
+
+    // verifica em qual página está
+    if (currentPage === "index.html" || currentPage === "") {
+      window.location.href = "blackhole.html";
+    } else if (currentPage === "blackhole.html") {
+      window.location.href = "index.html";
+    }
+  }, 800);
+});
+

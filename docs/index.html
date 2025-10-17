@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="icon" type="image/png" href="/docs/img/mainicon7.png">
   <title>Gabriel Marques</title>
 </head>
 
@@ -47,31 +48,13 @@
       <div class="hemominas js-scroll">
         <h3 class="titulo-hemominas">Fundação Hemominas</h3>
         <p>Atuei no desenvolvimento de telas e protótipos no Figma, com posterior implementação front-end. </p>
-        <div class="swiper">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide"> <img src="img/pagina1.jpeg" alt="Login Hemominas " class="expand-img">
-              <p>Página de Login</p>
-            </div>
-            <div class="swiper-slide"> <img src="img/pagina1mobile.jpeg" alt="Login Hemominas " class="expand-img">
-              <p>Página de Login</p>
-            </div>
-            <div class="swiper-slide"> <img src="img/pagina1.jpeg" alt="Login Hemominas " class="expand-img">
-              <p>Página de Login</p>
-            </div>
-            <div class="swiper-slide"> <img src="img/pagina1.jpeg" alt="Login Hemominas " class="expand-img">
-              <p>Página de Login</p>
-            </div>
-            <div class="swiper-slide"> <img src="img/pagina1.jpeg" alt="Login Hemominas " class="expand-img">
-              <p>Página de Login</p>
-            </div>
-          </div> <!-- Botões -->
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div> <!-- Paginação -->
-          <div class="swiper-pagination"></div>
-          <div id="imgModal" class="modal"> <span class="close">&times;</span> <img class="modal-content" id="modalImg"> </div>
-        </div>
+        <div id="imgModal" class="modal"> <span class="close">&times;</span> <img class="modal-content" id="modalImg"> </div>
+
         <p> Fui responsável pelo versionamento de scripts e projetos no GitLab, bem como pela instalação e administração de banco de dados PostgreSQL utilizando o PgAdmin, disponibilizando-o para consultas em rede.<br><br>
           Além disso, criei uma planilha em Excel com VBA integrada ao PostgreSQL, permitindo login, salvamento, atualização e exclusão de registros diretamente no banco de dados, incluindo também a geração automática de logs de alterações</p>
+        <div class="btn">
+          <button id="openHemominasModal" class="btn-ver">Ver</button>
+        </div>
       </div>
       <div class="pbh js-scroll">
         <div>
@@ -103,6 +86,26 @@
       <img src="img/gaia8.JPEG" alt="GAIA 8">
     </div>
   </div>
+  <div id="hemominasModal" class="modal">
+    <span class="close">&times;</span>
+    <div class="modal-content2">
+      <button class="prev">&#10094;</button>
+  
+      <div class="carousel">
+        <img src="/docs/img/pagina1.jpeg"  class="slide active" alt="Imagem 1">
+        <img src="/docs/img/pagina1mobile.jpeg" class="slide" alt="Imagem 2">
+        <video class="slide" controls muted loop>
+          <source src="/docs/img/vid1.mp4" type="video/mp4">
+        </video>
+        <video class="slide" controls muted loop>
+          <source src="/docs/img/vid2.mp4" type="video/mp4">
+        </video>
+      </div>
+  
+      <button class="next">&#10095;</button>
+    </div>
+  </div>
+ 
 
   <footer class="footer js-scroll">
     <div class="contato">
@@ -113,9 +116,7 @@
     </div>
     <p class="copyright">© Gabriel Marques</p>
 
-
   </footer>
-
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script type="importmap"> { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.157.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.157.0/examples/jsm/" } } </script>
@@ -123,4 +124,4 @@
   <script type="module" src="blackhole.js"></script>
 </body>
 
-</html> <!-- atuei no desenvolvimento de telas e protótipos no Figma, com posterior implementação front-end. Fui responsável pelo versionamento de scripts e projetos no GitLab, bem como pela instalação e administração de banco de dados PostgreSQL utilizando o PgAdmin, disponibilizando-o para consultas em rede. Além disso, criei uma planilha em Excel com VBA integrada ao PostgreSQL, permitindo login, salvamento, atualização e exclusão de registros diretamente no banco de dados, incluindo também a geração automática de logs de alterações.-->
+</html>
